@@ -98,11 +98,7 @@ Brewfather's **Custom Endpoint** power-up lets you push a batch to your WordPres
 Once the endpoint is configured, open any batch in Brewfather:
 
 1. Navigate to the **Batches** tab and open the batch you want to publish.
-2. Look for the **share / export icon** (↑ arrow) in the top-right corner of the batch header.
-3. Tap it to open the export action sheet.
-4. Choose **Send to Custom Endpoint** (sometimes labelled **Send Batch JSON**).
-
-Alternatively, if a **Send** button is visible directly in the batch header toolbar, tap that — it triggers the same action.
+2. In the batch header toolbar, tap the **Send JSON** icon.
 
 Brewfather will POST `{"_id":"<batch_id>"}` to your endpoint, and the plugin will fetch the full batch details from the API and publish the post.
 
