@@ -2,6 +2,13 @@
 /**
  * Plugin Name: Brewfather Sync (With Full Recipe)
  * Description: Automatically creates a blog post with full recipe details using the Brewfather API V2.
+ *
+ * ----------------------------------------------------------------------------
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * The author of this software wrote this file. As long as you retain this
+ * notice, you can do whatever you want with this stuff. If we meet someday,
+ * and you think this is worth it, you can buy me a beer in return.
+ * ----------------------------------------------------------------------------
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
