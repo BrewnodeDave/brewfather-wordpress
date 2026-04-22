@@ -201,7 +201,7 @@ function bf_handle_batch_request( WP_REST_Request $request ) {
     $style  = sanitize_text_field( $data['recipe']['style']['name'] ?? '' );
 
     // Colour swatch
-    $ebc    = $data['estimatedColor'] ?? null;
+    $ebc    = $data['recipe']['color'] ?? $data['estimatedColor'] ?? null;
     $hex    = $ebc !== null ? bf_ebc_to_hex( (float) $ebc ) : null;
     $swatch = $hex ? ' <span style="display:inline-block;width:14px;height:14px;background:' . esc_attr( $hex ) . ';border:1px solid #888;vertical-align:middle;border-radius:3px;"></span>' : '';
 
@@ -214,15 +214,15 @@ function bf_handle_batch_request( WP_REST_Request $request ) {
     }
 
     // 1. Brew stats table
-    $og_target   = $data['estimatedOg']  ?? null;
-    $og_measured = $data['measuredOg']   ?? null;
-    $fg_target   = $data['estimatedFg']  ?? null;
-    $fg_measured = $data['measuredFg']   ?? null;
-    $ibu         = $data['estimatedIbu'] ?? null;
-    $abv_est     = $data['estimatedAbv'] ?? null;
-    $abv_meas    = $data['measuredAbv']  ?? null;
-    $batch_size  = $data['batchSize']    ?? ( $data['recipe']['batchSize'] ?? null );
-    $efficiency  = $data['efficiency']   ?? ( $data['recipe']['efficiency'] ?? null );
+    $og_target   = $data['recipe']['og']  ?? null;
+    $og_measured = $data['measuredOg']    ?? null;
+    $fg_target   = $data['recipe']['fg']  ?? null;
+    $fg_measured = $data['measuredFg']    ?? null;
+    $ibu         = $data['recipe']['ibu'] ?? null;
+    $abv_est     = $data['recipe']['abv'] ?? null;
+    $abv_meas    = $data['measuredAbv']   ?? null;
+    $batch_size  = $data['batchSize']     ?? ( $data['recipe']['batchSize'] ?? null );
+    $efficiency  = $data['efficiency']    ?? ( $data['recipe']['efficiency'] ?? null );
 
     $rows = array();
     if ( $og_target !== null || $og_measured !== null )
