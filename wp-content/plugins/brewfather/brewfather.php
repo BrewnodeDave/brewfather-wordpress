@@ -321,6 +321,14 @@ function bf_handle_batch_request( WP_REST_Request $request ) {
 
     if ( $post_id && ! is_wp_error( $post_id ) ) {
         update_post_meta( $post_id, '_bf_batch_id', $bf_id );
+        // Assign to 'Brews' category, creating it if it doesn't exist
+        $cat_id = get_cat_ID( 'Brews' );
+        if ( ! $cat_id ) {
+            $cat_id = wp_create_category( 'Brews' );
+        }
+        if ( $cat_id ) {
+            wp_set_post_categories( $post_id, array( $cat_id ) );
+        }
         // Auto-tag by beer style
         $tags = array_values( array_filter( array(
             $style,
